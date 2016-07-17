@@ -16,10 +16,11 @@ public:
     char getWinner();
     bool isBlank(int x, int y);
     void setSymbol(char sym, int x, int y);
+    bool gameIsOver();
     string toString();
 private:
-    const int ROWS = 3;
-    const int COLS = 3;
+    static const int ROWS = 3;
+    static const int COLS = 3;
 
     char matrix[3][3];
 };

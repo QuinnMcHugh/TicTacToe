@@ -28,7 +28,7 @@ void Game::play(){
 
     // X always goes first...because I say so
     char turn = Board::X;
-    while (board.getWinner() == Board::BLANK){
+    while (!board.gameIsOver()){
         cout << board.toString() << endl;
         move m;
         if (turn == Board::X){
@@ -52,7 +52,12 @@ void Game::play(){
     }
 
     cout << board.toString() << endl;
-    cout << ((board.getWinner() == Board::X) ? "X" : "O") << " Wins." << endl;
+    if (board.getWinner() == Board::BLANK){
+    	cout << "Cat's game." << endl;
+    }
+    else {
+    	cout << ((board.getWinner() == Board::X) ? "X" : "O") << " Wins." << endl;
+    }
     cout << "Game over." << endl;
 }
 

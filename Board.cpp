@@ -57,6 +57,26 @@ void Board::setSymbol(char sym, int x, int y){
     matrix[y][x] = sym;
 }
 
+bool Board::gameIsOver(){
+	if (getWinner() != BLANK){
+		return true;
+	}
+	else {
+		int filledSpots = 0;
+		for (int i = 0; i < ROWS; i++){
+			for (int j = 0; j < COLS; j++){
+				if (!isBlank(j, i)){
+					filledSpots++;
+				}
+			}
+		}
+		if (filledSpots == ROWS * COLS){
+			return true;
+		}
+	}
+	return false;
+}
+
 std::string Board::toString() {
     ostringstream oss;
 

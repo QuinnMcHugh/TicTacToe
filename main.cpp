@@ -1,15 +1,13 @@
 #include <iostream>
-#include "Board.h"
+#include "Game.h"
 
 using namespace std;
 
 int main()
 {
-    Board board;
+    Game game(Game::HUMAN_VS_HUMAN);
 
-    board.setSymbol(Board::X, 0, 0);
-
-    cout << board.toString() << endl;
+    game.play();
 
     return 0;
 }
