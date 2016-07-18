@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {
-    Game game(Game::HUMAN_VS_HUMAN);
+    Game game(Game::HUMAN_VS_AI);
 
     game.play();
 

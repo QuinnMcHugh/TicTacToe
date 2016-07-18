@@ -10,6 +10,8 @@ public:
     static const char X = 'X';
     static const char O = 'O';
     static const char BLANK = ' ';
+    static const int ROWS = 3;
+    static const int COLS = 3;
 
     Board();
     void clear();
@@ -19,8 +21,6 @@ public:
     bool gameIsOver();
     string toString();
 private:
-    static const int ROWS = 3;
-    static const int COLS = 3;
 
     char matrix[3][3];
 };

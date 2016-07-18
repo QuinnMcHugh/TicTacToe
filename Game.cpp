@@ -1,6 +1,6 @@
 #include "Game.h"
 #include "Board.h"
-// #include "View.h                                                                                                                                           "
+#include "AI.h"
 #include <iostream>
 
 Game::Game(Game::GameType type){
@@ -13,7 +13,7 @@ void Game::play(){
 
     enum PlayerType {
         HUMAN,
-        AI
+        COMPUTER
     };
 
     PlayerType xType, oType;
@@ -23,7 +23,7 @@ void Game::play(){
     else {
         // For randomizing which symbol the user is, add in a randomized if test here
         xType = HUMAN;
-        oType = AI;
+        oType = COMPUTER;
     }
 
     // X always goes first...because I say so
@@ -36,7 +36,7 @@ void Game::play(){
                 m = getUserMove(turn, board);
             }
             else {
-                // m = getAIMove(board, turn);
+                m = AI::getMove(board, turn);
             }
         }
         else {
@@ -44,7 +44,7 @@ void Game::play(){
                 m = getUserMove(turn, board);
             }
             else {
-                // m = getAIMove(board, turn);
+                m = AI::getMove(board, turn);
             }
         }
         executeMove(m);
@@ -64,17 +64,3 @@ void Game::play(){
 void Game::executeMove(move m){
     board.setSymbol(m.symbol, m.x, m.y);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

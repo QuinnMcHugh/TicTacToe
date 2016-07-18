@@ -12,8 +12,6 @@ move getUserMove(char symbol, Board& board){
         string input;
         getline(cin, input);
 
-        // cout << "\nReceived this string: " << input << endl;
-
         int digitsEncountered = 0;
         for (int i = 0; i < input.length(); i++){
             if (input.at(i) >= '0' && input.at(i) <= '9'){
@@ -27,8 +25,6 @@ move getUserMove(char symbol, Board& board){
                 }
             }
         }
-
-        // cout << "\nReceived: (x, y): " << userMove.x << ", " << userMove.y << endl;
 
         if (userMove.x >= 0 && userMove.x < 3){
             if (userMove.y >= 0 && userMove.y < 3){
