@@ -13,9 +13,9 @@ move AI::getMove(Board board, char turn){
 	return bestTuple.m;
 }
 
-int AI::evaluate(Board board, char turn){
+int AI::evaluate(Board board, char perspective){
 	char winner = board.getWinner();
-	if (winner == turn){
+	if (winner == perspective){
 		return 100;
 	}
 	else if (winner == Board::BLANK){
@@ -53,7 +53,7 @@ move_score_tuple AI::miniMax(Board board, char turn, bool maximizingPlayer){
 		ret.m.x = -1;
 		ret.m.y = -1;
 
-		ret.score = evaluate(board, turn);
+		ret.score = evaluate(board, (maximizingPlayer) ? turn : ((turn == Board::X) ? Board::O : Board::X));
 
 		return ret;
 	}
@@ -71,9 +71,6 @@ move_score_tuple AI::miniMax(Board board, char turn, bool maximizingPlayer){
 			if (curTuple.score > bestVal){
 				bestVal = curTuple.score;
 				bestMove = possibleMoves.at(i);
-				// cout << endl << "better move just found" << endl;
-				// cout << "board looks like: " << endl << board.toString() << endl;
-				// cout << "The move was x: " << bestMove.x << " y: " << bestMove.y << " with turn: " << bestMove.symbol << endl;
 			}
 			
 			board.setSymbol(Board::BLANK, possibleMoves.at(i).x, possibleMoves.at(i).y);
